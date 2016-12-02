@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services',])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','ionic.cloud','ionic.cloud.init','gravatar','firebase','firebaseConfig','luegg.directives',])
 
 .config(function($ionicConfigProvider, $sceDelegateProvider){
   
@@ -28,3 +28,26 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     }
   });
 })
+
+.directive('disableSideMenuDrag', ['$ionicSideMenuDelegate', '$rootScope', function($ionicSideMenuDelegate, $rootScope) {
+    return {
+        restrict: "A",  
+        controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
+
+            function stopDrag(){
+              $ionicSideMenuDelegate.canDragContent(false);
+            }
+
+            function allowDrag(){
+              $ionicSideMenuDelegate.canDragContent(true);
+            }
+
+            $rootScope.$on('$ionicSlides.slideChangeEnd', allowDrag);
+            $element.on('touchstart', stopDrag);
+            $element.on('touchend', allowDrag);
+            $element.on('mousedown', stopDrag);
+            $element.on('mouseup', allowDrag);
+
+        }]
+    };
+}])

@@ -1,24 +1,25 @@
-<ion-view title="Login" hide-nav-bar="true" cache-view="false" nav-transition="none" id="page4">
-  <ion-content padding="true" style="background: url(img/QCCL7gsTDW8r7s2hQFXZ_photo_2016-11-08_09-34-09.jpg) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
-    <div id="login-markdown1" ng-if="" class="show-list-numbers-and-dots error-box">
-      <p style="color:#000000;">{{error}}</p>
+<ion-view title="Login" hide-nav-bar="true" cache-view="false" nav-transition="none" id="page5">
+  <ion-content padding="true" style="background: url(img/fM5qSrNS6aK53WUOr82w_orange20and20black.jpg) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
+    <div id="login-markdown2" ng-if="error" class="show-list-numbers-and-dots error-box">
+      <p style="color:#F8F3F3;">{{error}}</p>
     </div>
     <form id="login-form1" class="list center-form">
       <div>
-        <img src="img/CaYtm8KXRSicaCl5Ybbj_4.png" width="40%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+        <img src="img/DrarBCWNSPqELg6zBCJn_4.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
       </div>
-      <ion-list id="login-list2">
+      <ion-list id="login-list1">
         <label class="item item-input" id="login-input1">
           <span class="input-label">Email</span>
-          <input type="email" placeholder="">
+          <input type="text" placeholder="" ng-model="data.email">
         </label>
         <label class="item item-input" id="login-input2">
           <span class="input-label">Password</span>
-          <input type="password" placeholder="">
+          <input type="password" placeholder="" ng-model="data.password">
         </label>
       </ion-list>
-      <button id="login-button1" class="button button-positive  button-block">Log in</button>
-      <a ui-sref="signup" id="login-button2" class="button button-positive  button-block button-clear">Or create an account</a>
+      <div class="spacer" style="width: 300px; height: 18px;"></div>
+      <button id="login-button2" ng-click="login()" class="button button-light  button-block">Log in</button>
+      <a ui-sref="signup" id="login-button3" class="button button-assertive  button-block button-clear">Or create an account</a>
     </form>
   </ion-content>
 </ion-view>

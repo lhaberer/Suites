@@ -10,44 +10,44 @@ angular.module('app.routes', [])
     
   
 
-      .state('menu.home', {
-    url: '/page1',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/home.html',
-        controller: 'homeCtrl'
-      }
-    }
-  })
-
-  .state('menu.createASuite', {
+      .state('createEvent2.createEvent', {
     url: '/page2',
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/createASuite.html',
-        controller: 'createASuiteCtrl'
+      'tab2': {
+        templateUrl: 'templates/createEvent.html',
+        controller: 'createEventCtrl'
       }
     }
   })
 
-  .state('menu.existingSuit', {
+  .state('createEvent2.events', {
     url: '/page3',
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/existingSuit.html',
-        controller: 'existingSuitCtrl'
+      'tab4': {
+        templateUrl: 'templates/events.html',
+        controller: 'eventsCtrl'
       }
     }
   })
 
-  .state('menu', {
-    url: '/side-menu21',
-    templateUrl: 'templates/menu.html',
-    controller: 'menuCtrl'
+  .state('createEvent2.chat', {
+    url: '/page4',
+    views: {
+      'tab3': {
+        templateUrl: 'templates/chat.html',
+        controller: 'chatCtrl'
+      }
+    }
+  })
+
+  .state('createEvent2', {
+    url: '/page1',
+    templateUrl: 'templates/createEvent2.html',
+    abstract:true
   })
 
   .state('login', {
-    url: '/page4',
+    url: '/page5',
     templateUrl: 'templates/login.html',
     controller: 'loginCtrl'
   })
@@ -58,7 +58,13 @@ angular.module('app.routes', [])
     controller: 'signupCtrl'
   })
 
-$urlRouterProvider.otherwise('/page6')
+  .state('test', {
+    url: '/page8',
+    templateUrl: 'templates/test.html',
+    controller: 'testCtrl'
+  })
+
+$urlRouterProvider.otherwise('/page1/page4')
 
   
 

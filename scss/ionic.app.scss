@@ -1,4 +1,4 @@
-$positive: #ED5127;
+$light: #E9692C;
 $SIDEMENU_TOP: #ff4b1f;
 $SIDEMENU_BOTTOM: #ff9068;
 $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
@@ -12,6 +12,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	.item-content {
 		background: none;
 		&.activated {
+			background: $SIDEMENU_TRANSPARENCY;
+		}
+		
+	}
+	&.active-page-highlight {
+		.item-content {
 			background: $SIDEMENU_TRANSPARENCY;
 		}
 		
@@ -67,6 +73,22 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	p {
 		color: white;
 		margin: 0px;
+	}
+	
+}
+.top-container {
+	height: calc(100% - 96px);
+	overflow: scroll;
+}
+
+.bottom-form {
+	position: absolute;
+	bottom: 0px;
+	display: block;
+	width: 100%;
+	background-color: white;
+	button {
+		margin: 0px !important;
 	}
 	
 }
