@@ -14,52 +14,42 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
 
 }])
    
-.controller('createEventCtrl', ['$scope', '$stateParams', 'Survey', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('surveyCtrl', ['$scope', '$stateParams', 'Survey', '$ioinicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, Survey, $ionicPopup) {
+function ($scope, $stateParams, Survey, $ioinicPopup) {
 
     $scope.data = {
-        name: '',
+        name:'',
         user_present: 'No',
         arrival_time: '',
         entry_location: '',
         user_departed: 'No',
         departure_time: ''
-        
     }
-    
+
     $scope.submitting = false;
     
     $scope.submit = function(){
         $scope.submitting = true;
         Survey.add($scope.data).then(function(){
-           $scope.data = {
-                name: '',
-                 user_present: 'No',
+            $scope.data = {
+               name:'',
+                user_present: 'No',
                 arrival_time: '',
-                 entry_location: '',
+                entry_location: '',
                 user_departed: 'No',
-                departure_time: ''
-             }
+                departure_time:  '' 
+            }
             $scope.submitting = false;
             
-            $ionicPopup.alert({
+            $ioinicPopup.alert({
                 title: 'Thank you!',
-                template: 'You have added users to event.'
+                template: 'Your response has been recorded.'
             });
             
         })
     }
-
-}])
-   
-.controller('eventsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
-
 }])
    
 .controller('chatCtrl', ['$scope', '$stateParams', '$firebaseArray', '$ionicUser', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -103,13 +93,13 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
     if ($ionicAuth.isAuthenticated()) {
         // Make sure the user data is going to be loaded
         $ionicUser.load().then(function() {});
-        $state.go('createEvent2.events'); 
+        $state.go('createEvent.events'); 
     }
     
     $scope.login = function(){
         $scope.error = '';
         $ionicAuth.login('basic', $scope.data).then(function(){
-            $state.go('createEvent2.events');
+            $state.go('createEvent.events');
         }, function(){
             $scope.error = 'Error logging in.';
         })
@@ -137,7 +127,7 @@ function ($scope, $stateParams, $ionicAuth, $ionicUser, $state) {
         $ionicAuth.signup($scope.data).then(function() {
             // `$ionicUser` is now registered
             $ionicAuth.login('basic', $scope.data).then(function(){
-              $state.go('createEvent2.events');
+              $state.go('createEvent.events');
             });
         }, function(err) {
             
@@ -156,6 +146,70 @@ function ($scope, $stateParams, $ionicAuth, $ionicUser, $state) {
 }])
    
 .controller('testCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+.controller('eventsCtrl', ['$scope', '$stateParams', 'Survey', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams, Survey) {
+    
+    $scope.params = $stateParams;
+    
+    $scope.surveys = [];
+    
+    $scope.loadData = function(){
+        
+        if ($scope.params.name || $scope.params.favorite_color || $scope.params.favorite_pizza){
+            Survey.query($scope.params).then(function(res){
+                $scope.surveys = res;
+                $scope.$broadcast('scroll.refreshComplete');
+            })
+        }else{
+            Survey.all().then(function(res){
+                $scope.surveys = res;
+                $scope.$broadcast('scroll.refreshComplete');
+            })
+        }
+        
+    }
+
+    $scope.loadData();
+    
+    $scope.showDelete = false;
+    $scope.toggleDelete = function(){
+        $scope.showDelete = !$scope.showDelete;
+    }
+    
+    $scope.deleteItem = function($index){
+        Survey.delete($scope.surveys[$index].id).then(function(){
+            $scope.surveys.splice($index-1, 1);
+        })
+    }
+
+}])
+   
+.controller('almaDanceCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+.controller('thanksgivingDinnerCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+.controller('christmasPartyCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {

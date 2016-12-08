@@ -1,41 +1,13 @@
-<ion-view title="Create Event" id="page2">
-  <ion-content padding="true" style="background: url(img/qEKuWwQTSgWYzZa704sf_orange20and20black.jpg) no-repeat center;background-size:cover;" class="has-header">
-    <div id="createEvent-markdown4" style="text-align:center;" class="show-list-numbers-and-dots">
-      <p style="color:#E9692C;">Add People to Event</p>
-    </div>
-    <form id="createEvent-form5" class="list">
-      <label class="item item-input" id="createEvent-input10">
-        <span class="input-label">Name</span>
-        <input type="text" placeholder="" ng-model="data.name">
-      </label>
-      <label class="item item-select" id="createEvent-select1">
-        <span class="input-label">User Present?</span>
-        <select ng-model="data.user_present">
-          <option>No</option>
-          <option>Yes</option>
-        </select>
-      </label>
-      <label class="item item-input" id="createEvent-input12">
-        <span class="input-label">Arrival Time</span>
-        <input type="text" placeholder="" ng-model="data.arrival_time">
-      </label>
-      <label class="item item-input" id="createEvent-input11">
-        <span class="input-label">Entry Location</span>
-        <input type="text" placeholder="" ng-model="data.entry_location">
-      </label>
-      <div class="spacer" style="width: 300px; height: 49px;"></div>
-      <label class="item item-select" id="createEvent-select2">
-        <span class="input-label">User Departed?</span>
-        <select ng-model="data.user_departed">
-          <option>No</option>
-          <option>Yes</option>
-        </select>
-      </label>
-      <label class="item item-input" id="createEvent-input13">
-        <span class="input-label">Departure Time</span>
-        <input type="text" placeholder="" ng-model="data.departure_time">
-      </label>
-    </form>
-    <button id="createEvent-button7" ng-click="submit()" ng-disabled="submitting" class="button button-light  button-block">Save</button>
-  </ion-content>
+<ion-view title="Create Event" id="page1" style="background-color:#DA6F3D;">
+  <ion-tabs class="tabs-stable tabs-icon-top" id="createEvent-tabs1">
+    <ion-tab title="Events" icon="ion-ios-bookmarks" href="#/page1/page9" id="createEvent-tab4">
+      <ion-nav-view name="tab4"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Add People" icon="ion-plus" href="#/page1/page2" id="createEvent-tab2">
+      <ion-nav-view name="tab2"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Chat" icon="ion-chatbox" href="#/page1/page4" id="createEvent-tab3">
+      <ion-nav-view name="tab3"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
 </ion-view>

@@ -10,27 +10,17 @@ angular.module('app.routes', [])
     
   
 
-      .state('createEvent2.createEvent', {
+      .state('createEvent.survey', {
     url: '/page2',
     views: {
       'tab2': {
-        templateUrl: 'templates/createEvent.html',
-        controller: 'createEventCtrl'
+        templateUrl: 'templates/survey.html',
+        controller: 'surveyCtrl'
       }
     }
   })
 
-  .state('createEvent2.events', {
-    url: '/page3',
-    views: {
-      'tab4': {
-        templateUrl: 'templates/events.html',
-        controller: 'eventsCtrl'
-      }
-    }
-  })
-
-  .state('createEvent2.chat', {
+  .state('createEvent.chat', {
     url: '/page4',
     views: {
       'tab3': {
@@ -40,9 +30,9 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('createEvent2', {
+  .state('createEvent', {
     url: '/page1',
-    templateUrl: 'templates/createEvent2.html',
+    templateUrl: 'templates/createEvent.html',
     abstract:true
   })
 
@@ -64,7 +54,47 @@ angular.module('app.routes', [])
     controller: 'testCtrl'
   })
 
-$urlRouterProvider.otherwise('/page1/page4')
+  .state('createEvent.events', {
+    url: '/page9',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/events.html',
+        controller: 'eventsCtrl'
+      }
+    }
+  })
+
+  .state('createEvent.almaDance', {
+    url: '/page11',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/almaDance.html',
+        controller: 'almaDanceCtrl'
+      }
+    }
+  })
+
+  .state('createEvent.thanksgivingDinner', {
+    url: '/page14',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/thanksgivingDinner.html',
+        controller: 'thanksgivingDinnerCtrl'
+      }
+    }
+  })
+
+  .state('createEvent.christmasParty', {
+    url: '/page15',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/christmasParty.html',
+        controller: 'christmasPartyCtrl'
+      }
+    }
+  })
+
+$urlRouterProvider.otherwise('/page5')
 
   
 

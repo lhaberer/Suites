@@ -1,0 +1,40 @@
+<ion-view title="Survey" id="page2">
+  <ion-content padding="true" style="background: url(img/qEKuWwQTSgWYzZa704sf_orange20and20black.jpg) no-repeat center;background-size:cover;" class="has-header">
+    <div id="survey-markdown4" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#E9692C;">Add People to Event</p>
+    </div>
+    <form id="survey-form5" class="list">
+      <label class="item item-input" id="survey-input10">
+        <span class="input-label">Name</span>
+        <input type="text" placeholder="" ng-model="data.name">
+      </label>
+      <label class="item item-select" id="survey-select2">
+        <span class="input-label">User Present?</span>
+        <select ng-model="data.user_present">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+      </label>
+      <label class="item item-input" id="survey-input12">
+        <span class="input-label">Arrival Time</span>
+        <input type="text" placeholder="" ng-model="data.arrival_time">
+      </label>
+      <label class="item item-input" id="survey-input11">
+        <span class="input-label">Entry Location</span>
+        <input type="text" placeholder="" ng-model="data.entry_location">
+      </label>
+      <label class="item item-select" id="survey-select3">
+        <span class="input-label">User Departed?</span>
+        <select ng-model="data.user_departed">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+      </label>
+      <label class="item item-input" id="survey-input13">
+        <span class="input-label">Departure Time</span>
+        <input type="text" placeholder="" ng-model="data.departure_time">
+      </label>
+    </form>
+    <button id="survey-button7" ng-click="submit()" ng-disabled="" class="button button-light  button-block">submit</button>
+  </ion-content>
+</ion-view>
